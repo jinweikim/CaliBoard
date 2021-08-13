@@ -1,0 +1,6 @@
+module Pods_MyBoard {
+  umbrella header "Pods-MyBoard-umbrella.h"
+
+  export *
+  module * { export * }
+}

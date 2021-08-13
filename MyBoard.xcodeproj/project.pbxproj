@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		672BEA6F255D12A500DBB3C4 /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672BEA6E255D12A500DBB3C4 /* CircleView.swift */; };
+		67AF951A266F39D2009A83C9 /* CircleViewRed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AF9519266F39D2009A83C9 /* CircleViewRed.swift */; };
 		67F24E4024CD8CCC00F86727 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F24E3F24CD8CCC00F86727 /* AppDelegate.swift */; };
 		67F24E4224CD8CCC00F86727 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F24E4124CD8CCC00F86727 /* SceneDelegate.swift */; };
 		67F24E4424CD8CCC00F86727 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F24E4324CD8CCC00F86727 /* ViewController.swift */; };
@@ -15,6 +17,7 @@
 		67F24E4C24CD8CCF00F86727 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67F24E4A24CD8CCF00F86727 /* LaunchScreen.storyboard */; };
 		67F24E5724CD8CCF00F86727 /* MyBoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F24E5624CD8CCF00F86727 /* MyBoardTests.swift */; };
 		67F24E6224CD8CCF00F86727 /* MyBoardUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F24E6124CD8CCF00F86727 /* MyBoardUITests.swift */; };
+		CEBDA5D6730413618029D4E3 /* libPods-MyBoard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3A0B49F393184FA7470570 /* libPods-MyBoard.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0B3A0B49F393184FA7470570 /* libPods-MyBoard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyBoard.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		47757E51679E5735256EF48E /* Pods-MyBoard.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBoard.release.xcconfig"; path = "Target Support Files/Pods-MyBoard/Pods-MyBoard.release.xcconfig"; sourceTree = "<group>"; };
+		672BEA6E255D12A500DBB3C4 /* CircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
+		67AF9519266F39D2009A83C9 /* CircleViewRed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleViewRed.swift; sourceTree = "<group>"; };
 		67F24E3C24CD8CCC00F86727 /* MyBoard.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBoard.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F24E3F24CD8CCC00F86727 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67F24E4124CD8CCC00F86727 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +56,7 @@
 		67F24E5D24CD8CCF00F86727 /* MyBoardUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyBoardUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		67F24E6124CD8CCF00F86727 /* MyBoardUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBoardUITests.swift; sourceTree = "<group>"; };
 		67F24E6324CD8CCF00F86727 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E63B785C8E3DA50D0B9AF4B4 /* Pods-MyBoard.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyBoard.debug.xcconfig"; path = "Target Support Files/Pods-MyBoard/Pods-MyBoard.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +64,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEBDA5D6730413618029D4E3 /* libPods-MyBoard.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +85,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		64FD542CB6AF8E85D4831826 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0B3A0B49F393184FA7470570 /* libPods-MyBoard.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		67F24E3324CD8CCB00F86727 = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +100,8 @@
 				67F24E5524CD8CCF00F86727 /* MyBoardTests */,
 				67F24E6024CD8CCF00F86727 /* MyBoardUITests */,
 				67F24E3D24CD8CCC00F86727 /* Products */,
+				A5D6832E5DA8D243E5111213 /* Pods */,
+				64FD542CB6AF8E85D4831826 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -106,6 +125,8 @@
 				67F24E4824CD8CCF00F86727 /* Assets.xcassets */,
 				67F24E4A24CD8CCF00F86727 /* LaunchScreen.storyboard */,
 				67F24E4D24CD8CCF00F86727 /* Info.plist */,
+				672BEA6E255D12A500DBB3C4 /* CircleView.swift */,
+				67AF9519266F39D2009A83C9 /* CircleViewRed.swift */,
 			);
 			path = MyBoard;
 			sourceTree = "<group>";
@@ -128,6 +149,15 @@
 			path = MyBoardUITests;
 			sourceTree = "<group>";
 		};
+		A5D6832E5DA8D243E5111213 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E63B785C8E3DA50D0B9AF4B4 /* Pods-MyBoard.debug.xcconfig */,
+				47757E51679E5735256EF48E /* Pods-MyBoard.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +165,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 67F24E6624CD8CCF00F86727 /* Build configuration list for PBXNativeTarget "MyBoard" */;
 			buildPhases = (
+				CF7E49690FDA9B2CD8056A71 /* [CP] Check Pods Manifest.lock */,
 				67F24E3824CD8CCC00F86727 /* Sources */,
 				67F24E3924CD8CCC00F86727 /* Frameworks */,
 				67F24E3A24CD8CCC00F86727 /* Resources */,
@@ -254,11 +285,38 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CF7E49690FDA9B2CD8056A71 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyBoard-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		67F24E3824CD8CCC00F86727 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				672BEA6F255D12A500DBB3C4 /* CircleView.swift in Sources */,
+				67AF951A266F39D2009A83C9 /* CircleViewRed.swift in Sources */,
 				67F24E4424CD8CCC00F86727 /* ViewController.swift in Sources */,
 				67F24E4024CD8CCC00F86727 /* AppDelegate.swift in Sources */,
 				67F24E4224CD8CCC00F86727 /* SceneDelegate.swift in Sources */,
@@ -432,11 +490,13 @@
 		};
 		67F24E6724CD8CCF00F86727 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E63B785C8E3DA50D0B9AF4B4 /* Pods-MyBoard.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 538X84BFY8;
 				INFOPLIST_FILE = MyBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,11 +510,13 @@
 		};
 		67F24E6824CD8CCF00F86727 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 47757E51679E5735256EF48E /* Pods-MyBoard.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 538X84BFY8;
 				INFOPLIST_FILE = MyBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
