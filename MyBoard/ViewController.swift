@@ -124,18 +124,21 @@ class ViewController: UIViewController {
         
         drawCircle(centerX: 0, centerY: 0, radius: CGFloat(5))
         
+        let padding_x = 0.3 * 768
+        let padding_y = 0.36 * 1024
         
-        let x_indent = (1242-400) / (CaliColumnNum - 1)
-        let y_indent = (2208-800) / (CaliRowNum - 1)
+        
+        let x_indent = Int((768-padding_x)) / (CaliColumnNum - 1)
+        let y_indent = Int((1024-padding_y)) / (CaliRowNum - 1)
 
 
         for i in 0..<CaliColumnNum{
             for j in 0..<CaliRowNum{
-                let cx = CGFloat(200) + CGFloat(x_indent) * CGFloat(i)
-                let cy = CGFloat(400) + CGFloat(y_indent) * CGFloat(j)
-                let xPic = (cx / 1242) * 768
-                let yPic = (cy / 2208) * 1024
-                drawCircle(centerX: xPic, centerY: yPic, radius: CGFloat(5))
+                let cx = CGFloat(padding_x / 2) + CGFloat(x_indent) * CGFloat(i)
+                let cy = CGFloat(padding_y / 2) + CGFloat(y_indent) * CGFloat(j)
+                // let xPic = (cx / 1242) * 768
+                // let yPic = (cy / 2208) * 1024
+                drawCircle(centerX: cx, centerY: cy, radius: CGFloat(5))
             }
         }
         
@@ -199,9 +202,15 @@ class ViewController: UIViewController {
                 if ((waitTime >= 8)) {
                     // print("时间到")
                     print("规定时间内未检测到触控，加大深度")
-                    repeatTimes = repeatTimes + 1
+                    if (repeatTimes > 5) {
+                        print("当前点加深次数过多，重新对该点进行触控")
+                        repeatTimes = 0
+                        send(msg: "reTouch" + String(repeatTimes))
+                    } else {
+                        repeatTimes = repeatTimes + 1
+                        send(msg: "noTouch" + String(repeatTimes))
+                    }
                     deeperTimes[i] = repeatTimes
-                    send(msg: "noTouch" + String(repeatTimes))
                     ifRepeat = true
                     ifTouched[i] = false
                 } else if (tooShallow[i]) {
