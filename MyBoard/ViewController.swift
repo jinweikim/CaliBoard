@@ -28,22 +28,25 @@ class ViewController: UIViewController {
     
     
     var beganTime: TimeInterval = 0.0
-    let CaliRowNum = 5
-    let CaliColumnNum = 5
-    let CaliCount = 25
+    let CaliRowNum = 6
+    let CaliColumnNum = 6
+    let CaliCount = 36
     
     // 记录每一个校准点是否完成，完成以触屏开始为准
-    var ifTouched = [Bool](repeating: false, count: 25)
-    var deeperTimes = [Int](repeating: 0, count: 25)
+    var ifTouched = [Bool](repeating: false, count: 36)
+    var deeperTimes = [Int](repeating: 0, count: 36)
     
     // 触控位置坐标
-    var touchLocX = [CGFloat](repeating: 0, count: 25)
-    var touchLocY = [CGFloat](repeating: 0, count: 25)
+    var touchLocX = [CGFloat](repeating: 0, count: 36)
+    var touchLocY = [CGFloat](repeating: 0, count: 36)
     
-    var tooDeep = [Bool](repeating: false, count: 25)
-    var tooShallow = [Bool](repeating: false, count: 25)
+    var tooDeep = [Bool](repeating: false, count: 36)
+    var tooShallow = [Bool](repeating: false, count: 36)
     
-    var touchTime = [Double](repeating: 0, count: 25)
+    var touchTime = [Double](repeating: 0, count: 36)
+    
+    var latestTime = [Double](repeating: 0, count: 1000)
+    var latestIndex = 0
     
     var mutex = false
     
@@ -256,7 +259,7 @@ class ViewController: UIViewController {
     }
     
     private func send(msg: String) {
-        let client = TCPClient(address: "192.168.1.113", port: 9000)
+        let client = TCPClient(address: "192.168.1.104", port: 9000)
         switch client.connect(timeout: 10) {
           case .success:
             switch client.send(string: msg) {
@@ -328,6 +331,8 @@ class ViewController: UIViewController {
         
         beganRadiusLabel.text = "按压范围为:\(touch.majorRadius)"
         
+        print("\(touch.timestamp)")
+        
         let touchLoc = touch.location(in: view)
             
         // 2
@@ -365,22 +370,6 @@ class ViewController: UIViewController {
 //            let sY = String(format: "%.3f", Double(y))
 //            caliRes = caliRes + sX + " " + sY
         }
-
-            
-        // Create a new CircleView
-        // 3
-//        let circleView = CircleView(frame: CGRect(x: centerX, y: centerY, width: circleWidth, height: circleHeight))
-//        view.addSubview(circleView)
-        
-        /*
-        print("\(touch.preciseLocation(in: nil))")
-        print("\(touch.force)")
-        print("\(touch.majorRadius)")
-        print("\(touch.timestamp)")
-        */
-        
-        
-        
     }
 
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -434,20 +423,40 @@ class ViewController: UIViewController {
         // print(touchTime)
         
         // 触控时间需要小于一定值
+
         print("触摸位置为:(\(touchLocX[touchedIndex]), \(touchLocY[touchedIndex]))", terminator: " ")
         print("触摸时间为:\(touchTimeOne)")
+        
+        
+        let thisTime = touch!.timestamp
+        
+        print("触摸时刻为:\(thisTime)")
+        
+        let lastTime = latestTime[latestIndex]
+
+        latestIndex = latestIndex + 1
+        latestTime[latestIndex] = thisTime
+        
+        if ((thisTime - lastTime) < 1) {
+            print("该点为 end 误触")
+            return
+        }
+        
+        
+        
+        latestTime[latestIndex] = touch!.timestamp
         // 避免一次触控触发多次点击事件
         if (touchLocX[touchedIndex] != 0 && touchLocY[touchedIndex] != 0) {
             print(touchedIndex)
             print(touchLocX[touchedIndex])
             print(touchLocY[touchedIndex])
-            if (touchTimeOne < 0.5 && touchTimeOne > 0.2) {
+            if (touchTimeOne < 0.5 && touchTimeOne > 0.20) {
                 print("合格点")
                 // print("touchedIndex\(touchedIndex)")
                 ifTouched[touchedIndex] = true
                 touchTime[touchedIndex] = touchTimeOne
                 touchedIndex = touchedIndex + 1
-            } else if(touchTimeOne <= 0.2) {
+            } else if(touchTimeOne <= 0.20) {
                 print("过浅的点")
                 ifTouched[touchedIndex] = true
                 tooShallow[touchedIndex] = true
